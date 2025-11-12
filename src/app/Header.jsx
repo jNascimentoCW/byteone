@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import Button from "./Button";
 import { IoLogOut } from "react-icons/io5";
 
 // Uma das maneira de estilizar componentes com styled-components estilizando diretamente cada componente
@@ -36,9 +36,9 @@ export default function Header() {
       </Title>
 
       {/* Implementar um modal */}
-      <button onClick={() => alert("Tem certeza que deseja sair?")}>
+      <Button onClick={() => alert("Tem certeza que deseja sair?")}>
         Logout <IoLogOut height="3rem" />
-      </button>
+      </Button>
     </HeaderContainer>
   );
 }
