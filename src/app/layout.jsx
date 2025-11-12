@@ -3,6 +3,7 @@ import "./styles.jsx";
 // Importação da fonte Montserrat do Google Fonts
 import { Montserrat } from "next/font/google";
 
+// Configuração da fonte Montserrat
 const montserrat = Montserrat({
   subsets: ["latin"],
   fallback: ["Arial", "sans-serif"],
