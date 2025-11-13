@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import { useState } from "react";
+
 import Button from "./Button";
+
+import styled from "styled-components";
 import { IoLogOut } from "react-icons/io5";
+import LogoutModal from "./LogoutModal";
 
 // Uma das maneira de estilizar componentes com styled-components estilizando diretamente cada componente
 // É a maneira mais recomendada de usar styled-components!!!
@@ -30,6 +34,25 @@ export const Span = styled.span`
 `;
 
 export default function Header() {
+  const [showModal, setShowModal] = useState(false);
+
+  // Função para abrir o modal
+  const handleLogoutClick = () => {
+    setShowModal(true);
+  };
+
+  // Função para confirmar logout
+  const handleConfirmLogout = () => {
+    setShowModal(false);
+    // Lógica de logout aqui
+    alert("Você saiu com sucesso!");
+  };
+
+  // Função para cancelar logout
+  const handleCancelLogout = () => {
+    setShowModal(false);
+  };
+
   return (
     <HeaderContainer>
       <Title>
@@ -37,9 +60,17 @@ export default function Header() {
       </Title>
 
       {/* Implementar um modal */}
-      <Button onClick={() => alert("Tem certeza que deseja sair?")}>
-        Logout <IoLogOut height="3rem" />
+
+      <Button functionality={handleLogoutClick}>
+        Logout <IoLogOut size="20" />
       </Button>
+
+      {showModal && (
+        <LogoutModal
+          onConfirm={handleConfirmLogout}
+          onCancel={handleCancelLogout}
+        />
+      )}
     </HeaderContainer>
   );
 }

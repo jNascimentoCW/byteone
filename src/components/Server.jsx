@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import Button from "./Button";
+
+import styled from "styled-components";
 import { FaBolt } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
