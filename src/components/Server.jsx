@@ -42,10 +42,14 @@ export const Span = styled.span`
   color: #fb9f24;
 `;
 
-export default function ServerName() {
+export default function ServerName({
+  onlinePlayers,
+  players,
+  btnClickRefresh,
+  loading,
+}) {
   return (
     <ServerNameContainer>
-      <p>Nome do Servidor</p>
       <h2>Los Santos RP - FiveM</h2>
       <StatusInfo>
         <p>
@@ -56,11 +60,15 @@ export default function ServerName() {
           </span>
         </p>
         <p>
-          Jogadores Conectados:<Span> 125/250</Span>
+          Jogadores Conectados:
+          <Span>
+            {" "}
+            {loading ? 0 : onlinePlayers.length}/{players.length}
+          </Span>
         </p>
 
         {/* Implementar um random para atualizar os dados só para demonstração */}
-        <Button>
+        <Button functionality={btnClickRefresh}>
           Atualizar Status <IoReload />
         </Button>
       </StatusInfo>

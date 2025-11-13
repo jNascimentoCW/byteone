@@ -22,25 +22,64 @@ export const Panel = styled.div`
   padding-bottom: 1rem;
 `;
 
+export const Loading = styled.p`
+  text-align: center;
+  color: #ffffff;
+  padding: 2rem;
+  font-size: 1.2rem;
+`;
+
 export default function Home() {
   // Estado para armazenar os dados dos jogadores
   const [players, setPlayers] = useState([]);
+  const [onlinePlayers, setOnlinePlayers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Está implementado com useEffect para simular uma chamada de API e carregar os dados dos jogadores ao montar o componente para usar, por exemplo, axios para chamar uma API real futuramente
   useEffect(() => {
     setPlayers(playersData);
   }, []);
 
-  // Filtra apenas os jogadores que estão online
-  const onlinePlayers = players.filter((player) => player.online);
+  // Filtra os jogadores online sempre que a lista de jogadores mudar
+  useEffect(() => {
+    const filteredPlayers = players.filter((players) => players.online);
+    setOnlinePlayers(filteredPlayers);
+  }, [players]);
+
+  // Função para atualizar os dados dos jogadores (simulação)
+  function btnClickRefresh() {
+    setLoading(true);
+
+    // Simula uma chamada de API com um timeout
+    setTimeout(() => {
+      const updatedPlayers = players.map((player) => ({
+        ...player,
+        online: Math.random() > 0.5, // Simula o status online/offline aleatoriamente
+      }));
+
+      // Atualiza os estados com os novos dados
+      setPlayers(updatedPlayers);
+
+      setLoading(false);
+    }, 1500);
+  }
 
   return (
     <>
       <GlobalStyle />
       <Header />
       <Panel>
-        <Server />
-        <Table onlinePlayers={onlinePlayers} />
+        <Server
+          onlinePlayers={onlinePlayers}
+          players={players}
+          loading={loading}
+          btnClickRefresh={btnClickRefresh}
+        />
+        {loading ? (
+          <Loading>Carregando dados...</Loading>
+        ) : (
+          <Table onlinePlayers={onlinePlayers} />
+        )}
       </Panel>
     </>
   );
