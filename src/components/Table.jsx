@@ -1,4 +1,11 @@
+import { useEffect, useState } from "react";
+import playersData from "../data/players.json";
+
 import styled from "styled-components";
+
+// Outra maneira de estilizar componentes com styled-components estilizando todos os componentes de uma vez só
+// Não é tão recomendado, o ideal seria criar componentes estilizados para cada parte do componente
+// Está aqui apenas para exemplificar a funcionalidade do styled-components
 
 export const TableContainer = styled.div`
   display: flex;
@@ -50,6 +57,17 @@ export const TableContainer = styled.div`
 `;
 
 export default function Table() {
+  // Estado para armazenar os dados dos jogadores
+  const [players, setPlayers] = useState([]);
+
+  // Está implementado com useEffect para simular uma chamada de API e carregar os dados dos jogadores ao montar o componente para usar, por exemplo, axios para chamar uma API real futuramente
+  useEffect(() => {
+    setPlayers(playersData);
+  }, []);
+
+  // Filtra apenas os jogadores que estão online
+  const onlinePlayers = players.filter((player) => player.online);
+
   return (
     <TableContainer>
       <h2>Jogadores Online</h2>
@@ -64,66 +82,14 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>100</td>
-            <td className="playerName">ByteOne_User1ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td className="playerName">ByteOne_User1</td>
-            <td>2h 3min 0s</td>
-            <td>6h 30m 10s</td>
-          </tr>
+          {onlinePlayers.map((players) => (
+            <tr key={players.id}>
+              <td>{players.id}</td>
+              <td className="playerName">{players.playerName}</td>
+              <td>{players.ping}</td>
+              <td>{players.onlineTime}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </TableContainer>

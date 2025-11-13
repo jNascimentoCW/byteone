@@ -3,6 +3,7 @@ import Button from "./Button";
 import { IoLogOut } from "react-icons/io5";
 
 // Uma das maneira de estilizar componentes com styled-components estilizando diretamente cada componente
+// É a maneira mais recomendada de usar styled-components!!!
 
 // Estilização do cabeçalho
 export const HeaderContainer = styled.header`
