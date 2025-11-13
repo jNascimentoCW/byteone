@@ -1,6 +1,8 @@
 "use client";
 
 import Header from "./Header";
+import Server from "./Server";
+
 import { GlobalStyle } from "./styles";
 
 export default function Home() {
@@ -8,6 +10,7 @@ export default function Home() {
     <>
       <GlobalStyle />
       <Header />
+      <Server />
     </>
   );
 }

@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  // Estilos globais do body
+  // Estilização global do body
   body {
     background-color: #0B0B0B;
     color: #ffffff;

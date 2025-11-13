@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Estilização do botão
 export const ButtonStyled = styled.button`
   display: flex;
   align-items: center;
