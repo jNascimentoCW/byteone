@@ -2,6 +2,7 @@
 
 import Header from "./Header";
 import Server from "./Server";
+import Table from "./Table";
 
 import styled from "styled-components";
 
@@ -25,6 +26,7 @@ export default function Home() {
       <Header />
       <Panel>
         <Server />
+        <Table />
       </Panel>
     </>
   );
