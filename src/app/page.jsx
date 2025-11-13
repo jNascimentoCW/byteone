@@ -1,12 +1,12 @@
 "use client";
 
-import Header from "./Header";
-import Server from "./Server";
-import Table from "./Table";
+import Header from "../components/Header";
+import Server from "../components/Server";
+import Table from "../components/Table";
 
 import styled from "styled-components";
 
-import { GlobalStyle } from "./styles";
+import { GlobalStyle } from "../components/styles";
 
 // Estilização do painel principal
 export const Panel = styled.div`
