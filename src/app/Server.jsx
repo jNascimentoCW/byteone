@@ -4,6 +4,7 @@ import { FaBolt } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
 
+// Estilização do container do nome do servidor
 export const ServerNameContainer = styled.div`
   width: 100%;
   padding: 1rem 1rem 0 1rem;
@@ -13,6 +14,7 @@ export const ServerNameContainer = styled.div`
   gap: 0.5rem;
 `;
 
+// Estilização das informações de status
 export const StatusInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,12 +22,21 @@ export const StatusInfo = styled.div`
   font-size: 0.9rem;
 `;
 
+// Estilização do ícone de status online
 export const OnlineIcon = styled(FaCircle)`
   color: #00ff00;
   box-shadow: 0 0 6px rgba(0, 255, 0, 0.7);
   border-radius: 50%;
 `;
 
+// Estilização do ícone de status online
+export const OfflineIcon = styled(FaCircle)`
+  color: #ff0000;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+`;
+
+// Estilização do span para jogadores conectados
 export const Span = styled.span`
   font-weight: 600;
   color: #fb9f24;
@@ -47,6 +58,8 @@ export default function ServerName() {
         <p>
           Jogadores Conectados:<Span> 125/250</Span>
         </p>
+
+        {/* Implementar um random para atualizar os dados só para demonstração */}
         <Button>
           Atualizar Status <IoReload />
         </Button>
