@@ -2,8 +2,7 @@
 
 import { createGlobalStyle } from "styled-components";
 
-// Outra maneira de estilizar componentes com styled-components estilizando todos os componentes de uma vez só
-
+// Usado para centralizar estilos globais da aplicação
 export const GlobalStyle = createGlobalStyle`
   //Reset de estilos básicos
   * {

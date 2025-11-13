@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import playersData from "../data/players.json";
-
 import styled from "styled-components";
 
 // Outra maneira de estilizar componentes com styled-components estilizando todos os componentes de uma vez só
@@ -56,18 +53,7 @@ export const TableContainer = styled.div`
   }
 `;
 
-export default function Table() {
-  // Estado para armazenar os dados dos jogadores
-  const [players, setPlayers] = useState([]);
-
-  // Está implementado com useEffect para simular uma chamada de API e carregar os dados dos jogadores ao montar o componente para usar, por exemplo, axios para chamar uma API real futuramente
-  useEffect(() => {
-    setPlayers(playersData);
-  }, []);
-
-  // Filtra apenas os jogadores que estão online
-  const onlinePlayers = players.filter((player) => player.online);
-
+export default function Table({ onlinePlayers }) {
   return (
     <TableContainer>
       <h2>Jogadores Online</h2>
