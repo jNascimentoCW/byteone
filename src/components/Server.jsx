@@ -7,8 +7,8 @@ import { IoReload } from "react-icons/io5";
 
 // Estilização do container do nome do servidor
 export const ServerNameContainer = styled.div`
-  width: 100%;
-  padding: 1rem 1rem 0 1rem;
+  width: 90%;
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -21,6 +21,15 @@ export const StatusInfo = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   font-size: 0.9rem;
+`;
+
+export const Status = styled.div`
+  line-height: 1.4rem;
+
+  @media (min-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 // Estilização do ícone de status online
@@ -53,20 +62,22 @@ export default function ServerName({
     <ServerNameContainer>
       <h2>Los Santos RP - FiveM</h2>
       <StatusInfo>
-        <p>
-          <FaBolt color="#FFD700" />
-          Status{" "}
-          <span>
-            <OnlineIcon /> Online
-          </span>
-        </p>
-        <p>
-          Jogadores Conectados:
-          <Span>
-            {" "}
-            {loading ? 0 : onlinePlayers.length}/{players.length}
-          </Span>
-        </p>
+        <Status>
+          <p>
+            <FaBolt color="#FFD700" />
+            Status{" "}
+            <span>
+              <OnlineIcon /> Online
+            </span>
+          </p>
+          <p>
+            Jogadores Conectados:
+            <Span>
+              {" "}
+              {loading ? 0 : onlinePlayers.length}/{players.length}
+            </Span>
+          </p>
+        </Status>
 
         {/* Implementar um random para atualizar os dados só para demonstração */}
         <Button functionality={btnClickRefresh}>
