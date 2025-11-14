@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🖥️ Server Status Dashboard
 
-## Getting Started
+Um dashboard construído em **Next.js** para exibir o status de jogadores online, incluindo: ID, nome, ping e tempo online.
+O objetivo do projeto é praticar **componentização**, **estilização com styled-components** e boas práticas de UI.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologias Utilizadas
+
+* **Next.js**
+* **React**
+* **Styled-Components**
+* **JavaScript (ES2023+)**
+* **Consumo de API local**
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+src/
+ ├── app/
+ │    ├── page.jsx
+ │    ├── layout.jsx
+ │    └── globals.js (GlobalStyle)
+ ├── components/
+ │    ├── Header.jsx
+ │    ├── ServerName.jsx
+ │    ├── Table.jsx
+ │    └── styles/
+ │         ├── GlobalStyle.js
+ │         └── TableStyle.js
+ └── package.json
+```
+
+---
+
+## 📌 Funcionalidades
+
+✔️ Criado com **Next.js**
+✔️ Página totalmente renderizada no cliente (`"use client"`)
+✔️ Tabela dinâmica baseada na prop `onlinePlayers`
+✔️ Estilização global com `createGlobalStyle`
+✔️ Componentes reutilizáveis e organizados
+
+---
+
+## 🧩 Como Rodar o Projeto
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo
+```
+
+### 2️⃣ Instalar dependências
+
+```bash
+npm install
+```
+
+### 3️⃣ Rodar o servidor Next.js
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto ficará disponível em:
+👉 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📡 Exemplo de Estrutura de Dados Esperada
 
-## Learn More
+```json
+[
+  {
+    "id": 1,
+    "playerName": "Jhonatan",
+    "ping": 45,
+    "onlineTime": "12m"
+  }
+]
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Próximos Passos (Sugestões)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Paginação
+* Ordenação por nome, ping etc.
+* Tema (dark/light) com `ThemeProvider`
+* Testes com Jest e React Testing Library
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License © 2025 — *Jhonatan Nascimento*
+
+---
